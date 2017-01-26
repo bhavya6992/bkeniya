@@ -1,0 +1,22 @@
+#Zycus Assignment 1
+
+#Using the FROM instruction to set the Base Image for subsequent instructions
+FROM centos:centos6
+
+#Using LABEL to add the metadata which in this case is to mention the maintainer of the file
+LABEL maintainer "bhavya.keniya6992@gmail.com"
+
+#The RUN instruction will execute any commands in a new layer on top of the current image and commit the results
+#In order to avoid unnecessary layering, used single RUN command to install the images from DockerHub
+RUN yum -y update && \
+	yum install -y \
+	centos-release-scl \
+	python:2.7 \
+	mongo:3 \
+    	tomcat:7
+
+#To make the container listen on 8080 at runtime
+EXPOSE 8080
+
+#Running Tomcat server by default for the executing container
+CMD ["catalina.sh", "run"]

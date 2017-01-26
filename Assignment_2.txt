@@ -1,0 +1,32 @@
+#!/bin/bash
+
+#Assignment 2
+#Author : Bhavya Keniya
+
+#Is there any argument?
+$hostname
+echo "starting"
+if [[ ! $1 ]];then
+	echo "Missing hostnames"
+	exit 1
+echo "exiting"
+else
+	#getting the arguments
+	$hostnames="$1"
+
+echo "$hostname test"
+fi
+
+#searching number of arguments/hostnames
+echo "separator"
+the_seperator=","
+
+echo "after separaor"
+
+$total_hosts=$(grep -o "$the_seperator" <<< "$1" | wc -l)
+
+echo $total_hosts
+
+exit 0
+
+

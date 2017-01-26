@@ -1,0 +1,7 @@
+#build the image from dockerfile
+
+docker build -t zycusdockassignment:0.1 .
+
+#running the dockerfile
+
+docker run -d -p 7080:8080 zycusdockerassignment:0.1
